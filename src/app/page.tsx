@@ -291,7 +291,7 @@ const handleLike = async (postId: number, isLiked: boolean) => {
               <PostCard
                 key={post.id}
                 post={post}
-                onDelete={handleDelete} 
+                onDelete={post.userId === user?.id ? handleDelete : undefined} // Day3 変更: 自分の投稿にだけ削除機能を表示 
                 onLike={handleLike}           // Day3 追加
                 isAnimating={animatingId === post.id}  // Day3 追加
               />
